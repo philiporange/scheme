@@ -1,0 +1,30 @@
+#!/bin/bash
+set -e
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_NAME="scheme.sh"
+INSTALL_DIR="/usr/local/bin"
+INSTALL_NAME="${SCRIPT_NAME%.*}"
+INSTALL_PATH="$INSTALL_DIR/$INSTALL_NAME"
+
+# Check sudo
+if [ "$EUID" -ne 0 ]; then 
+  echo "Please run as root"
+  exit 1
+fi
+
+# Check if target already exists and backup if necessary
+if [ -f "$INSTALL_PATH" ]; then
+  echo "$INSTALL_PATH already exists. Creating a backup."
+  cp "$INSTALL_PATH" "$INSTALL_PATH.bak"
+fi
+
+# Install
+cp "$DIR/$SCRIPT_NAME" "$INSTALL_PATH"
+echo "Installed $SCRIPT_NAME to $INSTALL_PATH"
+
+# Make executable
+chmod +x "$INSTALL_PATH"
+
+echo "Installation completed successfully."
+exit 0
