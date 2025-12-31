@@ -1,0 +1,44 @@
+{
+  "name": "scheme",
+  "short_description": "Bash script to dynamically modify Neovim colorscheme and background settings.",
+  "long_description": "A lightweight bash utility that allows users to quickly change their Neovim editor's colorscheme and background (light/dark) settings without manually editing the configuration file. The script modifies the init.vim file directly using sed, supporting separate or combined colorscheme and background changes. It's designed for developers who want to switch editor themes from the command line.",
+  "keywords": [
+    "neovim",
+    "bash",
+    "cli-tool",
+    "colorscheme",
+    "editor-theme",
+    "configuration-management",
+    "utility",
+    "development-tool"
+  ],
+  "primary_language": "Shell",
+  "languages": [
+    "Shell"
+  ],
+  "frameworks": [],
+  "modules": [
+    {
+      "path": "scheme.sh",
+      "description": "Main script that parses command-line arguments and modifies Neovim init.vim configuration to change colorscheme and background settings."
+    },
+    {
+      "path": "INSTALL",
+      "description": "Installation script that copies scheme.sh to /usr/local/bin and makes it executable, with backup functionality."
+    }
+  ],
+  "git": {
+    "is_repo": true,
+    "remote_url": "git@github.com:philiporange/scheme.git",
+    "github_name": "philiporange/scheme",
+    "default_branch": "main",
+    "last_commit": "2023-06-19T12:49:39+01:00"
+  },
+  "stats": {
+    "files": 5,
+    "lines_of_code": 52,
+    "size_bytes": 12760
+  },
+  "generated_at": "2025-12-07T00:28:06.901903",
+  "generator_version": "1.0.0"
+}
